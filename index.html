@@ -7,40 +7,26 @@
     <meta name="description" content="Sri Sri Muneswara Trust Temple & Welfare Trust - Preserving spiritual traditions and serving society through temple rituals and welfare initiatives" />
     <meta name="author" content="Sri Sri Muneswara Trust" />
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Open Graph Meta Tags for Social Sharing -->
+    <!-- Open Graph Meta -->
     <meta property="og:title" content="Sri Sri Muneswara Trust Temple & Welfare Trust" />
     <meta property="og:description" content="Preserving spiritual traditions and serving society through temple rituals and welfare initiatives." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="./images/logo.png" />
+    <meta property="og:image" content="./src/assets/temple-logo.png" />
 
-    <!-- Twitter Card Meta -->
+    <!-- Twitter Meta -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@muneswaratrust" />
-    <meta name="twitter:image" content="./images/logo.png" />
+    <meta name="twitter:image" content="./src/assets/temple-logo.png" />
     <script type="module" crossorigin src="./assets/index-CgREiLD3.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DQUuWl9D.css">
   </head>
-
   <body>
     <div id="root"></div>
-
-    <!-- ✅ Primary script (Vite build) -->
-
-    <!-- 🔥 Fallback Loader: Ensures app starts even if base path fails -->
-    <script>
-      window.addEventListener("error", function (e) {
-        if (e.message.includes("Failed to fetch dynamically imported module")) {
-          const script = document.createElement("script");
-          script.type = "module";
-          script.src = "./src/main.tsx";
-          document.body.appendChild(script);
-        }
-      });
-    </script>
+    <!-- ✅ Correct script path -->
   </body>
 </html>
