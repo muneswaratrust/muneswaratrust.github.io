@@ -1,4 +1,4 @@
-name: Build and Deploy to Main
+name: Build and Deploy Vite Site to GitHub Pages
 
 on:
   push:
@@ -6,8 +6,11 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -23,19 +26,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Move build output to root
-        run: |
-          shopt -s dotglob
-          mkdir temp_build
-          mv dist/* temp_build/
-          rm -rf *
-          mv temp_build/* .
-          rm -rf temp_build dist
-
-      - name: Commit and push built files
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Deploy build to main" || echo "No changes to commit"
-          git push origin main
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
