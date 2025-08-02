@@ -26,7 +26,20 @@
 
   <body>
     <div id="root"></div>
-    <!-- ✅ Relative path for GitHub Pages -->
+
+    <!-- ✅ Primary script (Vite build) -->
     <script type="module" src="./src/main.tsx"></script>
+
+    <!-- 🔥 Fallback Loader: Ensures app starts even if base path fails -->
+    <script>
+      window.addEventListener("error", function (e) {
+        if (e.message.includes("Failed to fetch dynamically imported module")) {
+          const script = document.createElement("script");
+          script.type = "module";
+          script.src = "./src/main.tsx";
+          document.body.appendChild(script);
+        }
+      });
+    </script>
   </body>
 </html>
